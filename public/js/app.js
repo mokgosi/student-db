@@ -26839,7 +26839,7 @@ function useStudents() {
 
             case 2:
               response = _context.sent;
-              students.value = response.data;
+              students.value = response.data.data;
 
             case 4:
             case "end":

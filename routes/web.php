@@ -23,15 +23,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/students', function (Request $request) {
-    return view('students',[
-        // 'students' => []
-    ]);
+    return view('students');
 })->middleware(['auth'])->name('students');
 
 Route::get('/schools', function (Request $request) {
-    return view('schools',[
-        // 'schools' => []
-    ]);
+    return view('schools');
 })->middleware(['auth'])->name('schools');
 
 Route::get('/audit-trail', function (Request $request) {

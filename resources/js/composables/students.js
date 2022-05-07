@@ -11,7 +11,7 @@ export default function useStudents() {
 
     const getStudents = async () => {
         let response = await axios.get('/api/students')
-        students.value = response.data;
+        students.value = response.data.data;
     }
 
     const getStudent = async (id) => {
