@@ -6,9 +6,14 @@ import SchoolEdit from '../components/schools/SchoolEdit';
 import StudentsIndex from '../components/students/StudentsIndex';
 import StudentCreate from '../components/students/StudentCreate';
 import StudentEdit from '../components/students/StudentEdit';
+import Dashboard from '../components/Dashboard';
 
 const routes = [
     {
+        path: '/dashboard',
+        name: 'dashbord',
+        component: Dashboard
+    }, {
         path: '/schools',
         name: 'schools.index',
         component: SchoolsIndex

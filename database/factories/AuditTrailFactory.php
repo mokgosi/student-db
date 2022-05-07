@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
-class SchoolFactory extends Factory
+class AuditTrailFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,9 +18,10 @@ class SchoolFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->company(),
-            'province_id' => rand(1,9),
-            'area' => $this->faker->country()
+            'message' => $this->faker->company(),
+            'student_id' => rand(1,50),
+            'from_school_id' => rand(1,10),
+            'to_school_id' => rand(1,10),
         ];
     }
 }

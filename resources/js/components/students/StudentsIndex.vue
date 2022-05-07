@@ -54,6 +54,9 @@
                         <td class="px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200" >
                             {{ student.phone }}
                         </td>
+                        <td class="px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200" >
+                            {{ student.address }}
+                        </td>
                         <td class="px-3 py-3 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
                             <router-link :to="{name: 'students.edit', params: { id: student.id }, }">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">

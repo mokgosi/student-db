@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,27 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/students', function (Request $request) {
+    return view('students',[
+        'students' => []
+    ]);
+})->middleware(['auth'])->name('students');
+
+// Route::get('/schools', function (Request $request) {
+//     return view('schools',[
+//         'schools' => []
+//     ]);
+// })->middleware(['auth'])->name('schools');
+
+// Route::get('/audit-trail', function (Request $request) {
+//     return view('audit_trail',[
+//         'audit-trail' => []
+//     ]);
+// })->middleware(['auth'])->name('audit_trail');
+
+
 require __DIR__.'/auth.php';
+
+Route::view('/{any}', 'dashboard')
+->middleware('auth')
+->where('any','.*');

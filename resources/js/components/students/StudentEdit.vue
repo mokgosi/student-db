@@ -119,7 +119,7 @@
 </template>
 <script>
 import { onMounted, reactive } from 'vue'
-import useClients from '../../composables/clients'
+import useClients from '../../composables/students'
 
 export default {
     props: {

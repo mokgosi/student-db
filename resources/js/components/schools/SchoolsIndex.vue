@@ -61,7 +61,7 @@
 </template>
 <script>
 
-import useStudents from "../../composables/schools"
+import useSchools from "../../composables/schools"
 import { onMounted } from "vue";
 
 export default {
