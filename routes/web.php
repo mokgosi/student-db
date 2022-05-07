@@ -24,25 +24,37 @@ Route::get('/dashboard', function () {
 
 Route::get('/students', function (Request $request) {
     return view('students',[
-        'students' => []
+        // 'students' => []
     ]);
 })->middleware(['auth'])->name('students');
 
-// Route::get('/schools', function (Request $request) {
-//     return view('schools',[
-//         'schools' => []
-//     ]);
-// })->middleware(['auth'])->name('schools');
+Route::get('/schools', function (Request $request) {
+    return view('schools',[
+        // 'schools' => []
+    ]);
+})->middleware(['auth'])->name('schools');
 
-// Route::get('/audit-trail', function (Request $request) {
-//     return view('audit_trail',[
-//         'audit-trail' => []
-//     ]);
-// })->middleware(['auth'])->name('audit_trail');
+Route::get('/audit-trail', function (Request $request) {
+    return view('audit_trail',[
+        // 'audit-trail' => []
+    ]);
+})->middleware(['auth'])->name('audit_trail');
 
 
 require __DIR__.'/auth.php';
 
 Route::view('/{any}', 'dashboard')
+->middleware('auth')
+->where('any','.*');
+
+Route::view('/{any}', 'schools')
+->middleware('auth')
+->where('any','.*');
+
+Route::view('/{any}', 'students')
+->middleware('auth')
+->where('any','.*');
+
+Route::view('/{any}', 'audit-trails')
 ->middleware('auth')
 ->where('any','.*');

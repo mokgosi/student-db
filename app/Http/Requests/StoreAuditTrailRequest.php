@@ -13,7 +13,7 @@ class StoreAuditTrailRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class StoreAuditTrailRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'message' => 'required',
+            'student_id' => 'required',
+            'from_school_id' => 'required',
+            'to_school_id' => 'required',
         ];
     }
 }

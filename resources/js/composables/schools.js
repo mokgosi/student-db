@@ -10,8 +10,8 @@ export default function useSchools() {
     const router = useRouter()
 
     const getSchools = async () => {
-        let response = await axios.get('/api/school')
-        schools.value = response.data;
+        let response = await axios.get('/api/schools')
+        schools.value = response.data.data;
     }
 
     const getSchool = async (id) => {

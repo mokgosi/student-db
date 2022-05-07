@@ -8,7 +8,7 @@ use App\Http\Resources\AuditTrailResource;
 use App\Http\Controllers\Controller;
 use App\Models\AuditTrail;
 
-class ApiAuditTrailController extends Controller
+class AuditTrailController extends Controller
 {
     /**
      * Display a listing of the resource.
