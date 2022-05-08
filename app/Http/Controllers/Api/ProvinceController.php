@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProvinceRequest;
 use App\Http\Requests\UpdateProvinceRequest;
+use App\Http\Resources\ProvinceResource;
 use App\Models\Province;
 
 class ProvinceController extends Controller
@@ -15,7 +17,7 @@ class ProvinceController extends Controller
      */
     public function index()
     {
-        //
+        return ProvinceResource::collection(Province::all());
     }
 
     /**
@@ -26,7 +28,9 @@ class ProvinceController extends Controller
      */
     public function store(StoreProvinceRequest $request)
     {
-        //
+        $province = Province::create($request->validated());
+
+        return new ProvinceResource($province);
     }
 
     /**
@@ -37,7 +41,7 @@ class ProvinceController extends Controller
      */
     public function show(Province $province)
     {
-        //
+        return new ProvinceResource($province);
     }
 
     /**
@@ -49,7 +53,9 @@ class ProvinceController extends Controller
      */
     public function update(UpdateProvinceRequest $request, Province $province)
     {
-        //
+        $province->update($request->validated());
+
+        return new ProvinceResource($province);
     }
 
     /**
@@ -60,6 +66,8 @@ class ProvinceController extends Controller
      */
     public function destroy(Province $province)
     {
-        //
+        $province->delete();
+
+        return response()->noContent();
     }
 }

@@ -1,11 +1,9 @@
 <template>
-    <!-- <div v-if="errors">
-        <div v-for="(v, k) in errors" :key="k" class="bg-red-500 text-white rounded font-bold mb-4 shadow-lg py-2 px-4 pr-0">
-            <p v-for="error in v" :key="error" class="text-sm">
-                {{ error }}
-            </p>
-        </div>
-    </div> -->
+    <div v-if="errors">
+        <p v-for="error in v" :key="error" class="text-sm text-red-500">
+            {{ error }}sdfasdf
+        </p>
+    </div>
     <form class="space-y-6" @submit.prevent="saveStudent">
         <div>
             <label for="first_name" class="block text-sm font-medium text-gray-700">First Name</label>
@@ -15,7 +13,7 @@
                     v-model="form.first_name">
             </div>
             <div v-if="errors.first_name">
-                <p v-for="error in errors.first_name" :key="error" class="text-sm">
+                <p v-for="error in errors.first_name" :key="error" class="text-sm text-red-500">
                     {{ error }}
                 </p>
             </div>
@@ -28,7 +26,7 @@
                     v-model="form.last_name">
             </div>
             <div v-if="errors.last_name">
-                <p v-for="error in errors.last_name" :key="error" class="text-sm">
+                <p v-for="error in errors.last_name" :key="error" class="text-sm text-red-500">
                     {{ error }}
                 </p>
             </div>
@@ -41,7 +39,7 @@
                     v-model="form.id_number">
             </div>
             <div v-if="errors.id_number">
-                <p v-for="error in errors.id_number" :key="error" class="text-sm">
+                <p v-for="error in errors.id_number" :key="error" class="text-sm text-red-500">
                     {{ error }}
                 </p>
             </div>
@@ -54,7 +52,7 @@
                     v-model="form.date_of_birth">
             </div>
             <div v-if="errors.date_of_birth">
-                <p v-for="error in errors.date_of_birth" :key="error" class="text-sm">
+                <p v-for="error in errors.date_of_birth" :key="error" class="text-sm text-red-500">
                     {{ error }}
                 </p>
             </div>
@@ -67,7 +65,7 @@
                     v-model="form.email">
             </div>
             <div v-if="errors.email">
-                <p v-for="error in errors.email" :key="error" class="text-sm">
+                <p v-for="error in errors.email" :key="error" class="text-sm text-red-500">
                     {{ error }}
                 </p>
             </div>
@@ -80,20 +78,20 @@
                     v-model="form.phone">
             </div>
             <div v-if="errors.phone">
-                <p v-for="error in errors.phone" :key="error" class="text-sm">
+                <p v-for="error in errors.phone" :key="error" class="text-sm text-red-500">
                     {{ error }}
                 </p>
             </div>
         </div>
         <div>
-            <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
+            <label for="home_address" class="block text-sm font-medium text-gray-700">Address</label>
             <div class="mt-1">
-                <input type="text" name="address" id="address"
+                <input type="text" name="home_address" id="home_address"
                     class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                    v-model="form.address">
+                    v-model="form.home_address">
             </div>
-            <div v-if="errors.address">
-                <p v-for="error in errors.address" :key="error" class="text-sm">
+            <div v-if="errors.home_address">
+                <p v-for="error in errors.home_address" :key="error" class="text-sm text-red-500">
                     {{ error }}
                 </p>
             </div>
@@ -101,12 +99,15 @@
         <div>
             <label for="school_id" class="block text-sm font-medium text-gray-700">School</label>
             <div class="mt-1">
-                <input type="text" name="school_id" id="school_id"
-                    class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                    v-model="form.school_id">
+                <select name="school_id" id="school_id" v-model="form.school_id" class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    <option value="">Select your school</option>
+                    <option v-for="school in schools" :value="school.id" :key="school.id">
+                        {{ school.name }}
+                    </option>
+                </select>
             </div>
             <div v-if="errors.school_id">
-                <p v-for="error in errors.school_id" :key="error" class="text-sm">
+                <p v-for="error in errors.school_id" :key="error" class="text-sm text-red-500">
                     {{ error }}
                 </p>
             </div>
@@ -124,7 +125,7 @@ import { onMounted, reactive } from "vue";
 
 export default {
     setup() {
-        const { errors, storeStudent } = useStudents();
+        const { errors, schools, getSchools, storeStudent } = useStudents();
 
         const form = reactive({
             'first_name': '',
@@ -133,9 +134,11 @@ export default {
             'date_of_birth': '',
             'email': '',
             'phone': '',
-            'address': '',
+            'home_address': '',
             'school_id': '',
         })
+
+        onMounted(getSchools);
 
         const saveStudent = async () => {
             await storeStudent({...form});
@@ -144,6 +147,7 @@ export default {
         return {
             form,
             errors,
+            schools,
             saveStudent,
         };
     }

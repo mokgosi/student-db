@@ -30,11 +30,11 @@ Route::get('/schools', function (Request $request) {
     return view('schools');
 })->middleware(['auth'])->name('schools');
 
-Route::get('/audit-trail', function (Request $request) {
-    return view('audit_trail',[
+Route::get('/audit-trails', function (Request $request) {
+    return view('audit_trails',[
         // 'audit-trail' => []
     ]);
-})->middleware(['auth'])->name('audit_trail');
+})->middleware(['auth'])->name('audit_trails');
 
 
 require __DIR__.'/auth.php';
@@ -51,6 +51,6 @@ Route::view('/{any}', 'students')
 ->middleware('auth')
 ->where('any','.*');
 
-Route::view('/{any}', 'audit-trails')
+Route::view('/{any}', 'audit_trails')
 ->middleware('auth')
 ->where('any','.*');

@@ -6,6 +6,7 @@ export default function useStudents() {
 
     const student = ref([])
     const students = ref([])
+    const schools = ref([])
     const errors = ref('')
     const router = useRouter()
 
@@ -31,6 +32,11 @@ export default function useStudents() {
         }
     }
 
+    const getSchools = async () => {
+        let response = await axios.get('/api/schools')
+        schools.value = response.data.data;
+    }
+
     const updateStudent = async (id) => {
         errors.value = ''
         try {
@@ -51,10 +57,12 @@ export default function useStudents() {
         errors,
         student,
         students,
+        schools,
         getStudent,
         getStudents,
         storeStudent,
         destroyStudent,
-        updateStudent
+        updateStudent,
+        getSchools
     }
 }

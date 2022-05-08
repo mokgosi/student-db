@@ -6,6 +6,7 @@ import SchoolEdit from '../components/schools/SchoolEdit';
 import StudentsIndex from '../components/students/StudentsIndex';
 import StudentCreate from '../components/students/StudentCreate';
 import StudentEdit from '../components/students/StudentEdit';
+import AuditTrailsIndex from '../components/audit_trails/AuditTrailsIndex';
 import Dashboard from '../components/Dashboard';
 
 const routes = [
@@ -37,6 +38,15 @@ const routes = [
     }, {
         path: '/students/edit',
         name: 'students.edit',
+        component: StudentEdit,
+        props: true
+    }, {
+        path: '/audit-trails',
+        name: 'audit_trails.index',
+        component: AuditTrailsIndex,
+    }, {
+        path: '/audit-trails/edit',
+        name: 'audit_trails.edit',
         component: StudentEdit,
         props: true
     }

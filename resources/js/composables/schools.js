@@ -6,6 +6,7 @@ export default function useSchools() {
 
     const school = ref([])
     const schools = ref([])
+    const provinces = ref([])
     const errors = ref('')
     const router = useRouter()
 
@@ -31,10 +32,15 @@ export default function useSchools() {
         }
     }
 
+    const getProvinces = async () => {
+        let response = await axios.get('/api/provinces')
+        provinces.value = response.data.data;
+    }
+
     const updateSchool = async (id) => {
         errors.value = ''
         try {
-            await axios.put(`/api/schools/${id}`, student.value);
+            await axios.put(`/api/schools/${id}`, school.value);
             await router.push({ name: 'schools.index'})
         } catch (e) {
             if (e.response.status === 422) {
@@ -51,10 +57,12 @@ export default function useSchools() {
         errors,
         school,
         schools,
+        provinces,
         getSchool,
         getSchools,
         storeSchool,
         destroySchool,
-        updateSchool
+        updateSchool,
+        getProvinces
     }
 }

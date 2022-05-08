@@ -15,7 +15,7 @@
                     v-model="student.first_name">
             </div>
             <div v-if="errors.name">
-                <p v-for="error in errors.first_name" :key="error" class="text-sm">
+                <p v-for="error in errors.first_name" :key="error" class="text-sm text-red-500">
                     {{ error }}
                 </p>
             </div>
@@ -28,7 +28,7 @@
                     v-model="student.last_name">
             </div>
             <div v-if="errors.last_name">
-                <p v-for="error in errors.last_name" :key="error" class="text-sm">
+                <p v-for="error in errors.last_name" :key="error" class="text-sm text-red-500">
                     {{ error }}
                 </p>
             </div>
@@ -41,7 +41,7 @@
                     v-model="student.id_number">
             </div>
             <div v-if="errors.id_number">
-                <p v-for="error in errors.id_number" :key="error" class="text-sm">
+                <p v-for="error in errors.id_number" :key="error" class="text-sm text-red-500">
                     {{ error }}
                 </p>
             </div>
@@ -54,7 +54,7 @@
                     v-model="student.date_of_birth">
             </div>
             <div v-if="errors.date_of_birth">
-                <p v-for="error in errors.date_of_birth" :key="error" class="text-sm">
+                <p v-for="error in errors.date_of_birth" :key="error" class="text-sm text-red-500">
                     {{ error }}
                 </p>
             </div>
@@ -67,7 +67,7 @@
                     v-model="student.email">
             </div>
             <div v-if="errors.email">
-                <p v-for="error in errors.email" :key="error" class="text-sm">
+                <p v-for="error in errors.email" :key="error" class="text-sm text-red-500">
                     {{ error }}
                 </p>
             </div>
@@ -80,7 +80,7 @@
                     v-model="student.phone">
             </div>
             <div v-if="errors.phone">
-                <p v-for="error in errors.phone" :key="error" class="text-sm">
+                <p v-for="error in errors.phone" :key="error" class="text-sm text-red-500">
                     {{ error }}
                 </p>
             </div>
@@ -93,7 +93,7 @@
                     v-model="student.address">
             </div>
             <div v-if="errors.address">
-                <p v-for="error in errors.address" :key="error" class="text-sm">
+                <p v-for="error in errors.address" :key="error" class="text-sm text-red-500">
                     {{ error }}
                 </p>
             </div>
@@ -101,12 +101,15 @@
         <div>
             <label for="school_id" class="block text-sm font-medium text-gray-700">School</label>
             <div class="mt-1">
-                <input type="text" name="school_id" id="school_id"
-                    class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                    v-model="student.school_id">
+                <select name="school_id" id="school_id" v-model="student.school_id" class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    <option value="">Select your school</option>
+                    <option v-for="school in schools" :value="school.id" :key="school.id">
+                        {{ school.name }}
+                    </option>
+                </select>
             </div>
             <div v-if="errors.school_id">
-                <p v-for="error in errors.school_id" :key="error" class="text-sm">
+                <p v-for="error in errors.school_id" :key="error" class="text-sm text-red-500">
                     {{ error }}
                 </p>
             </div>
@@ -119,7 +122,7 @@
 </template>
 <script>
 import { onMounted, reactive } from 'vue'
-import useClients from '../../composables/students'
+import useStudents from '../../composables/students'
 
 export default {
     props: {
@@ -130,18 +133,20 @@ export default {
     },
     setup(props) {
         
-        const { errors, client, getClient, updateClient } = useClients();
+        const { errors, student, schools, getStudent, getSchools, updateStudent} = useStudents();
 
-        onMounted(getClient(props.id))
+        onMounted(getStudent(props.id))
+        onMounted(getSchools)
 
-        const saveClient = async () => {
-            await updateClient(props.id);
+        const saveStudent = async () => {
+            await updateStudent(props.id);
         }
 
         return {
-            client,
+            student,
             errors,
-            saveClient
+            schools,
+            saveStudent
         }
     }
 }

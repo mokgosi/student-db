@@ -6,7 +6,7 @@
             </p>
         </div>
     </div> -->
-    <form class="space-y-6" @submit.prevent="saveClient">
+    <form class="space-y-6" @submit.prevent="saveSchool">
         <div>
             <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
             <div class="mt-1">
@@ -36,9 +36,12 @@
         <div>
             <label for="province_id" class="block text-sm font-medium text-gray-700">Province</label>
             <div class="mt-1">
-                <input type="text" name="province_id" id="province_id"
-                    class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                    v-model="school.province_id">
+                <select name="province_id" id="province_id" v-model="school.province_id" class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    <option value="">Select your province</option>
+                    <option v-for="province in provinces" :value="province.id" :key="province.id">
+                        {{ province.name }}
+                    </option>
+                </select>
             </div>
             <div v-if="errors.province_id">
                 <p v-for="error in errors.province_id" :key="error" class="text-sm">
@@ -65,9 +68,10 @@ export default {
     },
     setup(props) {
         
-        const { errors, school, getSchool, updateSchool } = useSchools();
+        const { errors, school, provinces, getSchool, getProvinces, updateSchool } = useSchools();
 
         onMounted(getSchool(props.id))
+        onMounted(getProvinces);
 
         const saveSchool = async () => {
             await updateSchool(props.id);
@@ -76,7 +80,9 @@ export default {
         return {
             school,
             errors,
-            saveSchool
+            provinces,
+            saveSchool,
+            getProvinces
         }
     }
 }

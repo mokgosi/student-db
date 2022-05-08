@@ -27,7 +27,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('audit_trail')" :active="request()->routeIs('audit_trail')">
+                    <x-nav-link :href="route('audit_trails')" :active="request()->routeIs('audit_trails')">
                         {{ __('Audit Trail') }}
                     </x-nav-link>
                 </div>
