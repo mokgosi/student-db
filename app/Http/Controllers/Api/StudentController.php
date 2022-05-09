@@ -17,7 +17,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return StudentResource::collection(Student::all());
+        return StudentResource::collection(Student::with('school')->get());
     }
 
     /**
@@ -54,7 +54,9 @@ class StudentController extends Controller
     public function update(UpdateStudentRequest $request, Student $student)
     {
         $student->update($request->validated());
-
+        if ($student->school_id != $student->getOriginal('school_id')) {
+            $student->transferStudent('value');
+        }
         return new StudentResource($student);
     }
 

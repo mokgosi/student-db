@@ -18,6 +18,11 @@ class School extends Model
         return $this->hasMany(Student::class);
     }
 
+    public function province()
+    {
+        return $this->belongsTo(Province::class);
+    }
+
     public function getStudentsCountAttribute()
     {
         return $this->students()->count();

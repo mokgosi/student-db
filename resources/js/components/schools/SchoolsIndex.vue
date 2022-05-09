@@ -37,7 +37,7 @@
                             {{ school.area}}
                         </td>
                         <td class="px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200" >
-                            {{ school.province_id }}
+                            {{ school.province.name }}
                         </td>
                         <td class="px-3 py-3 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
                             <router-link :to="{name: 'schools.edit', params: { id: school.id }, }">

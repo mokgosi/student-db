@@ -17,7 +17,7 @@ class SchoolController extends Controller
      */
     public function index()
     {
-        return SchoolResource::collection(School::all());
+        return SchoolResource::collection(School::with('province')->get());
     }
 
     /**

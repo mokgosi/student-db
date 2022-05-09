@@ -26,7 +26,7 @@
                         Phone
                     </th>
                     <th class="px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100">
-                        Address
+                        School
                     </th>
                     <th class="px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100">
                         Edit
@@ -55,7 +55,7 @@
                             {{ student.phone }}
                         </td>
                         <td class="px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200" >
-                            {{ student.address }}
+                            {{ student.school.name }}
                         </td>
                         <td class="px-3 py-3 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
                             <router-link :to="{name: 'students.edit', params: { id: student.id }, }">
