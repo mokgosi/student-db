@@ -45,7 +45,6 @@ $ ./vendor/bin/sail artisan breeze:install
 ```
 mv .env.example .env
 ```
-
 ### Setup application unique key
 ```
 $ ./vendor/bin/sail key:generate 
