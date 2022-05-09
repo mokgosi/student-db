@@ -61,7 +61,12 @@ $ ./vendor/bin/sail artisan key:generate
 ```
 $ ./vendor/bin/sail artisan migrate:fresh --seed
 ```
+### Test your app here
+
+http://localhost
+
 
 TODO: (Due to time constraints)
 
 - Implement DataTables
+- Unit Tests
