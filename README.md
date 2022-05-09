@@ -21,7 +21,23 @@ $ git clone https://github.com/mokgosi/student-db.git
 $ composer install
 ```
 
-### (OPTIONAL) Run these commands to stop any running containers and services
+### Setup Environment variables file in your root directory
+```
+$ cp .env.example .env
+```
+
+Open .env file from root and setup the following variables
+
+```
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=student_db
+DB_USERNAME=sail
+DB_PASSWORD=password
+```
+
+### (OPTIONAL) Run these commands to stop any conflicting running containers and services
 ```
 $ sudo aa-remove-unknown
 $ docker container kill $(docker ps -q) // kill all running containers
@@ -36,18 +52,9 @@ $ sudo /etc/init.d/mysql stop
 $ ./vendor/bin/sail up 
 ```
 
-### Scaffold Breeze
-```
-$ ./vendor/bin/sail artisan breeze:install 
-```
-
-### Setup Environment variables file in your root directory
-```
-mv .env.example .env
-```
 ### Setup application unique key
 ```
-$ ./vendor/bin/sail key:generate 
+$ ./vendor/bin/sail artisan key:generate 
 ```
 
 ### Database migration and seed
@@ -55,3 +62,6 @@ $ ./vendor/bin/sail key:generate
 sail artisan migrate:fresh --seed
 ```
 
+TODO: (Due to time constraints)
+
+- Implement DataTables
