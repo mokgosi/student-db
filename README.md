@@ -59,7 +59,7 @@ $ ./vendor/bin/sail artisan key:generate
 
 ### Database migration and seed
 ```
-sail artisan migrate:fresh --seed
+$ ./vendor/bin/sail artisan migrate:fresh --seed
 ```
 
 TODO: (Due to time constraints)
