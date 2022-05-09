@@ -35,7 +35,7 @@ class Student extends Model implements Auditable
         $this->auditEvent = 'transfer';
         $this->isCustomEvent = true;
         $this->auditCustomOld = [
-            "school" => 'old'
+            "school_" => 'old'
         ];
         $this->auditCustomNew = [
             "school" => 'new'

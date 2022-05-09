@@ -23,9 +23,6 @@
                         Student
                     </th>
                     <th class="px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100">
-                        Edit
-                    </th>
-                    <th class="px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100">
                         Delete
                     </th>
                 </tr>
@@ -44,13 +41,6 @@
                         </td>
                         <td class="px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200">
                             {{ auditTrail.new_values.first_name }} {{ auditTrail.new_values.last_name }}
-                        </td>
-                        <td class="px-3 py-3 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                            <router-link :to="{name: 'audit_trails.edit', params: { id: auditTrail.id }, }">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-                                </svg>
-                            </router-link>
                         </td>
                         <td class="px-3 py-3 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
                             <a @click="deleteAuditTrail(auditTrail.id)">

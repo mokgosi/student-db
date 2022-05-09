@@ -53,10 +53,14 @@ class StudentController extends Controller
      */
     public function update(UpdateStudentRequest $request, Student $student)
     {
-        $student->update($request->validated());
-        if ($student->school_id != $student->getOriginal('school_id')) {
+        // dd($request->get('school_id').' '.$student->getOriginal('school_id'));
+        // dd('here');
+
+        if ($request->school_id != $student->getOriginal('school_id')) {
             $student->transferStudent('value');
         }
+        $student->update($request->validated());
+        
         return new StudentResource($student);
     }
 

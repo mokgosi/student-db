@@ -21,6 +21,19 @@ class AuditController extends Controller
     }
 
     /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\AuditTrail  $auditTrail
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Audit $auditTrail)
+    {
+        $auditTrail->delete();
+
+        return response()->noContent();
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

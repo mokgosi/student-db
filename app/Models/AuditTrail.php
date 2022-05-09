@@ -9,5 +9,6 @@ class AuditTrail extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['message', 'student_id', 'from_school_id', 'to_school_id'];
+    protected $table = 'audits';
+
 }

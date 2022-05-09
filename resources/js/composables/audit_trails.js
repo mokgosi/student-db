@@ -13,13 +13,13 @@ export default function useAuditTrails() {
         auditTrails.value = response.data.data;
     }
 
-    const destroyAuditTrails = async (id) => {
+    const destroyAuditTrail = async (id) => {
         await axios.delete(`/api/audit-trails/${id}`);
     }
 
     return {
         auditTrails,
         getAuditTrails,
-        destroyAuditTrails
+        destroyAuditTrail
     }
 }
