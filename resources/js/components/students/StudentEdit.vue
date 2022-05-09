@@ -86,14 +86,14 @@
             </div>
         </div>
         <div>
-            <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
+            <label for="home_address" class="block text-sm font-medium text-gray-700">Home Address</label>
             <div class="mt-1">
-                <input type="text" name="address" id="address"
+                <input type="text" name="home_address" id="home_address"
                     class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                    v-model="student.address">
+                    v-model="student.home_address">
             </div>
-            <div v-if="errors.address">
-                <p v-for="error in errors.address" :key="error" class="text-sm text-red-500">
+            <div v-if="errors.home_address">
+                <p v-for="error in errors.home_address" :key="error" class="text-sm text-red-500">
                     {{ error }}
                 </p>
             </div>

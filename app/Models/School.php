@@ -15,4 +15,8 @@ class School extends Model
     {
         return $this->hasMany(Student::class);
     }
+
+    public function getStudentsCountAttribute(){
+        return $this->students()->count();
+    }
 }

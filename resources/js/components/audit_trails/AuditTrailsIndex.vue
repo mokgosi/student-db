@@ -11,7 +11,16 @@
             <thead>
                 <tr>
                     <th class="px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100">
-                        Message
+                        Auditable Type
+                    </th>
+                    <th class="px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100">
+                        Change By
+                    </th>
+                    <th class="px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100">
+                        Event
+                    </th>
+                    <th class="px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100">
+                        Who
                     </th>
                     <th class="px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100">
                         Edit
@@ -24,8 +33,17 @@
             <tbody class="bg-white">
                 <template v-for="auditTrail in auditTrails" :key="auditTrail.id"> 
                     <tr>
+                         <td class="px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200">
+                            {{ auditTrail.auditable_type }}
+                        </td>
                         <td class="px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200">
-                            {{ auditTrail.message }}
+                            {{ auditTrail.user.name }}
+                        </td>
+                        <td class="px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200">
+                            {{ auditTrail.event }}
+                        </td>
+                        <td class="px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200">
+                            {{ auditTrail.new_values.first_name }} {{ auditTrail.new_values.last_name }}
                         </td>
                         <td class="px-3 py-3 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
                             <router-link :to="{name: 'audit_trails.edit', params: { id: auditTrail.id }, }">
@@ -57,7 +75,8 @@ export default {
         const { auditTrails, getAuditTrails, destroyAuditTrail} = useAuditTrails();
 
         onMounted(getAuditTrails);
-        console.log('here')
+
+        console.log(auditTrails)
         
         const deleteAuditTrail = async (id) => {
             if (!window.confirm("Are you sure?")) {

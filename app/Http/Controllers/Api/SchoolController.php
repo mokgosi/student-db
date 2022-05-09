@@ -70,4 +70,15 @@ class SchoolController extends Controller
 
         return response()->noContent();
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function dashboard()
+    {
+        // $links = Link::orderBy('created_at', 'desc')->limit(4)->get();
+        return SchoolResource::collection(School::orderBy('created_at', 'desc')->limit(5)->get());
+    }
 }
