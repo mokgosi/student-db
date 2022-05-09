@@ -57,7 +57,7 @@ class StudentController extends Controller
         // dd('here');
 
         if ($request->school_id != $student->getOriginal('school_id')) {
-            $student->transferStudent('value');
+            $student->transferStudent($request->school_id, $student->getOriginal());
         }
         $student->update($request->validated());
         

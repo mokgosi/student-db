@@ -30,16 +30,15 @@ class Student extends Model implements Auditable
         return $this->belongsTo(School::class);
     }
 
-    public function transferStudent($student)
+    public function transferStudent($school, $student)
     {
+        // dd($student);
+        $transfer = $student;
+        $transfer['school_id'] = $school; 
         $this->auditEvent = 'transfer';
         $this->isCustomEvent = true;
-        $this->auditCustomOld = [
-            "school_" => 'old'
-        ];
-        $this->auditCustomNew = [
-            "school" => 'new'
-        ];
+        $this->auditCustomOld = $student;
+        $this->auditCustomNew = $transfer;
         Event::dispatch(AuditCustom::class, [$this]);
     }
 }
