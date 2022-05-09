@@ -36,9 +36,19 @@ $ sudo /etc/init.d/mysql stop
 $ ./vendor/bin/sail up 
 ```
 
-### Compile assets
+### Scaffold Breeze
 ```
-./vendor/bin/sail npm run prod
+$ ./vendor/bin/sail artisan breeze:install 
+```
+
+### Setup Environment variables file in your root directory
+```
+mv .env.example .env
+```
+
+### Setup application unique key
+```
+$ ./vendor/bin/sail key:generate 
 ```
 
 ### Database migration and seed
