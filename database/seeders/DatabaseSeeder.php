@@ -20,6 +20,5 @@ class DatabaseSeeder extends Seeder
         ]);
         \App\Models\School::factory(10)->create();
         \App\Models\Student::factory(50)->create();
-        \App\Models\AuditTrail::factory(20)->create();
     }
 }

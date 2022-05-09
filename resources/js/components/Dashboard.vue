@@ -103,7 +103,12 @@
                                             {{ auditTrail.event}}
                                         </td>
                                         <td class="px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200">
+                                            <span v-if="auditTrail.new_values.first_name">
                                             {{ auditTrail.new_values.first_name }} {{ auditTrail.new_values.last_name }}
+                                            </span>
+                                            <span v-else>
+                                                Id: {{ auditTrail.auditable_id }} 
+                                            </span>
                                         </td>
                                     </tr>
                                 </template>

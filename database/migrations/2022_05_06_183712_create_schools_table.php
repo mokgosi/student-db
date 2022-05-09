@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('area');
             $table->integer('province_id')->unsigned()->index();
-            $table->foreign('province_id')->references('id')->on('provinces');
+            $table->foreign('province_id')->references('id')->on('provinces')->onDelete('cascade');;
             $table->timestamps();
         });
     }
