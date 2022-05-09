@@ -41,18 +41,18 @@ Route::get('/audit-trails', function (Request $request) {
 
 require __DIR__.'/auth.php';
 
-Route::view('/{any}', 'dashboard')
+// Route::view('/{any}', 'dashboard')
+// ->middleware('auth')
+// ->where('any','.*');
+
+Route::view('/schools/{any}', 'schools')
 ->middleware('auth')
 ->where('any','.*');
 
-Route::view('/{any}', 'schools')
+Route::view('/students/{any}', 'students')
 ->middleware('auth')
 ->where('any','.*');
 
-Route::view('/{any}', 'students')
-->middleware('auth')
-->where('any','.*');
-
-Route::view('/{any}', 'audit_trails')
-->middleware('auth')
-->where('any','.*');
+// Route::view('//{any}', 'audit_trails')
+// ->middleware('auth')
+// ->where('any','.*');
