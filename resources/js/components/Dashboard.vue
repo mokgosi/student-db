@@ -23,12 +23,17 @@
                                             {{ student.first_name }} {{ student.last_name }}
                                         </td>
                                         <td class="px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200">
-                                            900
+                                            {{ student.school.name }}
                                         </td>
                                     </tr>
                                 </template>
                             </tbody>
                         </table>
+                        <div class="flex place-content-end pt-3 text-indigo-700 cursor-pointer">
+                            <router-link  :to="{ name: 'students.index' }" class="text-sm font-medium">
+                                See more...
+                            </router-link>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -60,6 +65,11 @@
                                 </template>
                             </tbody>
                         </table>
+                        <div class="flex place-content-end pt-3 text-indigo-700 cursor-pointer">
+                            <router-link  :to="{ name: 'schools.index' }" class="text-sm font-medium">
+                                See more...
+                            </router-link>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -76,7 +86,10 @@
                                         Auditable Type
                                     </th>
                                     <th class="px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100">
-                                        Change By
+                                        Event
+                                    </th>
+                                    <th class="px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100">
+                                        Student
                                     </th>
                                 </tr>
                             </thead>
@@ -89,11 +102,18 @@
                                         <td class="px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200">
                                             {{ auditTrail.event}}
                                         </td>
+                                        <td class="px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200">
+                                            {{ auditTrail.new_values.first_name }} {{ auditTrail.new_values.last_name }}
+                                        </td>
                                     </tr>
                                 </template>
                             </tbody>
                         </table>
-                        
+                        <div class="flex place-content-end pt-3 text-indigo-700 cursor-pointer">
+                            <router-link  :to="{ name: 'audit_trails.index' }" class="text-sm font-medium">
+                                See more...
+                            </router-link>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -112,6 +132,8 @@ export default {
         onMounted(getSchools)
         onMounted(getStudents)
         onMounted(getAuditTrails)
+
+        // console.log(students)
 
         return {
             schools,

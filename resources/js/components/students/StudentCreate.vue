@@ -1,7 +1,7 @@
 <template>
     <div v-if="errors">
         <p v-for="error in v" :key="error" class="text-sm text-red-500">
-            {{ error }}sdfasdf
+            {{ error }}
         </p>
     </div>
     <form class="space-y-6" @submit.prevent="saveStudent">

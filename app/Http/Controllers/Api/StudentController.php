@@ -79,6 +79,9 @@ class StudentController extends Controller
     public function dashboard()
     {
         // $links = Link::orderBy('created_at', 'desc')->limit(4)->get();
-        return StudentResource::collection(Student::orderBy('created_at', 'desc')->limit(5)->get());
+        return StudentResource::collection(Student::with('school')
+            ->orderBy('created_at', 'desc')
+            ->limit(5)
+            ->get());
     }
 }
