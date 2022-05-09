@@ -11,12 +11,15 @@ class School extends Model
 
     protected $fillable = ['name', 'area', 'province_id'];
 
+    protected $appends = ['students_count'];
+
     public function students()
     {
         return $this->hasMany(Student::class);
     }
 
-    public function getStudentsCountAttribute(){
+    public function getStudentsCountAttribute()
+    {
         return $this->students()->count();
     }
 }

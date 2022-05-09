@@ -59,7 +59,7 @@
                                             {{ school.name }}
                                         </td>
                                         <td class="px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200">
-                                            900
+                                            {{ school.students_count }}
                                         </td>
                                     </tr>
                                 </template>

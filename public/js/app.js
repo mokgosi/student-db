@@ -25272,13 +25272,9 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 var _hoisted_19 = {
   "class": "px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200"
 };
-
-var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+var _hoisted_20 = {
   "class": "px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200"
-}, " 900 ", -1
-/* HOISTED */
-);
-
+};
 var _hoisted_21 = {
   "class": "flex place-content-end pt-3 text-indigo-700 cursor-pointer"
 };
@@ -25365,7 +25361,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       key: school.id
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(school.name), 1
     /* TEXT */
-    ), _hoisted_20]);
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(school.students_count), 1
+    /* TEXT */
+    )]);
   }), 128
   /* KEYED_FRAGMENT */
   ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {

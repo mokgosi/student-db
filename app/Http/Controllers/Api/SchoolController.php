@@ -78,7 +78,14 @@ class SchoolController extends Controller
      */
     public function dashboard()
     {
-        // $links = Link::orderBy('created_at', 'desc')->limit(4)->get();
-        return SchoolResource::collection(School::orderBy('created_at', 'desc')->limit(5)->get());
+        $schools = School::orderBy('created_at', 'desc')
+            ->limit(5)
+            ->get();
+
+        $schools->map(function ($school) {
+            $school->students_count;
+        });
+
+        return SchoolResource::collection($schools);
     }
 }
