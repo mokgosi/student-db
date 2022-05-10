@@ -7,7 +7,47 @@
                 </router-link>
             </div>
         </div> -->
-        <table class="min-w-full">
+        <div>
+            <vue-good-table
+            :columns="columns"
+            :rows="auditTrails"
+            :line-numbers="true"
+            :search-options="{
+                enabled: true
+            }"
+            :pagination-options="{
+                enabled: true,
+                mode: 'pages',
+                perPage: 5,
+                position: 'bottom',
+                perPageDropdown: [5, 10, 15],
+                dropdownAllowAll: false,
+                setCurrentPage: 1,
+                nextLabel: 'next',
+                prevLabel: 'prev',
+                rowsPerPageLabel: 'Rows per page',
+                ofLabel: 'of',
+                pageLabel: 'page', // for 'pages' mode
+                allLabel: 'All',
+                infoFn: (params) => `my own page ${params.firstRecordOnPage}`, 
+            }">
+            <template #table-row="props">
+                <span v-if="props.column.field == 'after'">
+                    <a @click="deleteAuditTrail(props.row.id)">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                        </svg>
+                    </a>
+                </span>
+                <span v-else>
+                    {{props.formattedRow[props.column.field]}}
+                </span>
+            </template>
+
+            </vue-good-table>
+
+        </div>
+        <!-- <table class="min-w-full">
             <thead>
                 <tr>
                     <th class="px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100">
@@ -57,22 +97,34 @@
                     </tr>
                 </template>
             </tbody>
-        </table>
+        </table> -->
     </div>
 </template>
 <script>
 
 import useAuditTrails from "../../composables/audit_trails"
-import { onMounted } from "vue";
+import { onMounted, reactive } from "vue";
+
+import 'vue-good-table-next/dist/vue-good-table-next.css'
+import { VueGoodTable } from 'vue-good-table-next';
 
 export default {
+    components: { VueGoodTable },
     setup() {
         const { auditTrails, getAuditTrails, destroyAuditTrail} = useAuditTrails();
 
+        const columns = reactive([
+            {label: "Auditable Type", field: 'auditable_type'},
+            {label: "Student", field: 'auditable_id'},
+            {label: "Event", field: 'event'},
+            {label: "Changed By", field: 'user_id'},
+            {label: "Old Values", field: 'old_values'},
+            {label: "New Values", field: 'new_values'},
+            {label: 'Delete', field: 'after'}
+        ]);
+
         onMounted(getAuditTrails);
 
-        console.log(auditTrails)
-        
         const deleteAuditTrail = async (id) => {
             if (!window.confirm("Are you sure?")) {
                 return;
@@ -82,6 +134,7 @@ export default {
         };
 
         return {
+            columns,
             auditTrails,
             deleteAuditTrail,
         };
