@@ -82,7 +82,21 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
-        
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('students')" :active="request()->routeIs('students')">
+                {{ __('Students') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('schools')" :active="request()->routeIs('schools')">
+                {{ __('Schools') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('audit_trails')" :active="request()->routeIs('audit_trails')">
+                {{ __('Audit Trails') }}
+            </x-responsive-nav-link>
+        </div>
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
