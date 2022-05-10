@@ -117,10 +117,10 @@ export default {
             {label: "Auditable Type", field: 'auditable_type'},
             {label: "Student", field: 'auditable_id'},
             {label: "Event", field: 'event'},
-            {label: "Changed By", field: 'user_id'},
-            {label: "Old Values", field: 'old_values'},
-            {label: "New Values", field: 'new_values'},
-            {label: 'Delete', field: 'after'}
+            {label: "User", field: 'user_id'},
+            {label: "Old Values", field: 'old_values', sortable: false},
+            {label: "New Values", field: 'new_values', sortable: false},
+            {label: 'Delete', field: 'after', sortable: false}
         ]);
 
         onMounted(getAuditTrails);

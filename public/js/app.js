@@ -24693,17 +24693,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       label: "Event",
       field: 'event'
     }, {
-      label: "Changed By",
+      label: "User",
       field: 'user_id'
     }, {
       label: "Old Values",
-      field: 'old_values'
+      field: 'old_values',
+      sortable: false
     }, {
       label: "New Values",
-      field: 'new_values'
+      field: 'new_values',
+      sortable: false
     }, {
       label: 'Delete',
-      field: 'after'
+      field: 'after',
+      sortable: false
     }]);
     (0,vue__WEBPACK_IMPORTED_MODULE_2__.onMounted)(getAuditTrails);
 
