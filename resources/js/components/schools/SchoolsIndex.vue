@@ -23,7 +23,7 @@
                 position: 'bottom',
                 perPageDropdown: [5, 10, 15],
                 dropdownAllowAll: false,
-                setCurrentPage: 2,
+                setCurrentPage: 1,
                 nextLabel: 'next',
                 prevLabel: 'prev',
                 rowsPerPageLabel: 'Rows per page',
@@ -53,6 +53,7 @@
             </template>
 
             </vue-good-table>
+
         </div>
 
         <!-- <table class="min-w-full">

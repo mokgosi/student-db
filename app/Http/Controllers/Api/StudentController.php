@@ -17,7 +17,11 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return StudentResource::collection(Student::with('school')->get());
+        return StudentResource::collection(Student::select('students.id','students.first_name', 
+            'students.last_name', 'students.id_number', 'students.email', 'students.phone', 
+            'students.home_address', 'schools.name as school')
+            ->join('schools', 'schools.id','=','students.school_id')
+            ->get());
     }
 
     /**

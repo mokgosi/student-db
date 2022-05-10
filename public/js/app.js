@@ -25149,6 +25149,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _composables_students__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../composables/students */ "./resources/js/composables/students.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var vue_good_table_next_dist_vue_good_table_next_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-good-table-next/dist/vue-good-table-next.css */ "./node_modules/vue-good-table-next/dist/vue-good-table-next.css");
+/* harmony import */ var vue_good_table_next__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-good-table-next */ "./node_modules/vue-good-table-next/dist/vue-good-table.esm.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -25157,13 +25159,43 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    VueGoodTable: vue_good_table_next__WEBPACK_IMPORTED_MODULE_4__.VueGoodTable
+  },
   setup: function setup() {
     var _useStudents = (0,_composables_students__WEBPACK_IMPORTED_MODULE_1__["default"])(),
         students = _useStudents.students,
         getStudents = _useStudents.getStudents,
         destroyStudent = _useStudents.destroyStudent;
 
+    var columns = (0,vue__WEBPACK_IMPORTED_MODULE_2__.reactive)([{
+      label: "First Name",
+      field: 'first_name'
+    }, {
+      label: "Last Name",
+      field: 'last_name'
+    }, {
+      label: "ID Number",
+      field: 'id_number'
+    }, {
+      label: "Email",
+      field: 'email'
+    }, {
+      label: 'Phone',
+      field: 'phone'
+    }, {
+      label: 'School',
+      field: 'school'
+    }, {
+      label: 'Edit',
+      field: 'before'
+    }, {
+      label: 'Delete',
+      field: 'after'
+    }]);
     (0,vue__WEBPACK_IMPORTED_MODULE_2__.onMounted)(getStudents);
 
     var deleteStudent = /*#__PURE__*/function () {
@@ -25201,6 +25233,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }();
 
     return {
+      columns: columns,
       students: students,
       deleteStudent: deleteStudent
     };
@@ -25989,7 +26022,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       position: 'bottom',
       perPageDropdown: [5, 10, 15],
       dropdownAllowAll: false,
-      setCurrentPage: 2,
+      setCurrentPage: 1,
       nextLabel: 'next',
       prevLabel: 'prev',
       rowsPerPageLabel: 'Rows per page',
@@ -26745,55 +26778,10 @@ var _hoisted_3 = {
 var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Create New ");
 
 var _hoisted_5 = {
-  "class": "min-w-full"
+  key: 0
 };
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
-  "class": "px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100"
-}, " First Name "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
-  "class": "px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100"
-}, " Last Name "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
-  "class": "px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100"
-}, " ID Number "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
-  "class": "px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100"
-}, " Email "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
-  "class": "px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100"
-}, " Phone "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
-  "class": "px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100"
-}, " School "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
-  "class": "px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100"
-}, " Edit "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
-  "class": "px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100"
-}, " Delete ")])], -1
-/* HOISTED */
-);
-
-var _hoisted_7 = {
-  "class": "bg-white"
-};
-var _hoisted_8 = {
-  "class": "px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200"
-};
-var _hoisted_9 = {
-  "class": "px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200"
-};
-var _hoisted_10 = {
-  "class": "px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200"
-};
-var _hoisted_11 = {
-  "class": "px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200"
-};
-var _hoisted_12 = {
-  "class": "px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200"
-};
-var _hoisted_13 = {
-  "class": "px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200"
-};
-var _hoisted_14 = {
-  "class": "px-3 py-3 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200"
-};
-
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   "class": "w-6 h-6 text-blue-400",
   fill: "none",
@@ -26808,12 +26796,12 @@ var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_16 = {
-  "class": "px-3 py-3 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200"
+var _hoisted_7 = {
+  key: 1
 };
-var _hoisted_17 = ["onClick"];
+var _hoisted_8 = ["onClick"];
 
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   "class": "w-6 h-6 text-red-600",
   fill: "none",
@@ -26828,9 +26816,14 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_19 = [_hoisted_18];
+var _hoisted_10 = [_hoisted_9];
+var _hoisted_11 = {
+  key: 2
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
+
+  var _component_vue_good_table = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("vue-good-table");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
@@ -26846,47 +26839,66 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["to"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_7, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.students, function (student) {
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
-      key: student.id
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(student.first_name), 1
-    /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(student.last_name), 1
-    /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(student.id_number), 1
-    /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(student.email), 1
-    /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(student.phone), 1
-    /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(student.school.name), 1
-    /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
-      to: {
-        name: 'students.edit',
-        params: {
-          id: student.id
+  , ["to"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_vue_good_table, {
+    columns: $setup.columns,
+    rows: $setup.students,
+    "line-numbers": true,
+    "search-options": {
+      enabled: true
+    },
+    "pagination-options": {
+      enabled: true,
+      mode: 'pages',
+      perPage: 5,
+      position: 'bottom',
+      perPageDropdown: [5, 10, 15],
+      dropdownAllowAll: false,
+      setCurrentPage: 1,
+      nextLabel: 'next',
+      prevLabel: 'prev',
+      rowsPerPageLabel: 'Rows per page',
+      ofLabel: 'of',
+      pageLabel: 'page',
+      // for 'pages' mode
+      allLabel: 'All',
+      infoFn: function infoFn(params) {
+        return "my own page ".concat(params.firstRecordOnPage);
+      }
+    }
+  }, {
+    "table-row": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (props) {
+      return [props.column.field == 'before' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+        to: {
+          name: 'students.edit',
+          params: {
+            id: props.row.id
+          }
         }
-      }
-    }, {
-      "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-        return [_hoisted_15];
-      }),
-      _: 2
-      /* DYNAMIC */
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [_hoisted_6];
+        }),
+        _: 2
+        /* DYNAMIC */
 
-    }, 1032
-    /* PROPS, DYNAMIC_SLOTS */
-    , ["to"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-      onClick: function onClick($event) {
-        return $setup.deleteStudent(student.id);
-      }
-    }, _hoisted_19, 8
-    /* PROPS */
-    , _hoisted_17)])]);
-  }), 128
-  /* KEYED_FRAGMENT */
-  ))])])]);
+      }, 1032
+      /* PROPS, DYNAMIC_SLOTS */
+      , ["to"])])) : props.column.field == 'after' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+        onClick: function onClick($event) {
+          return $setup.deleteStudent(props.row.id);
+        }
+      }, _hoisted_10, 8
+      /* PROPS */
+      , _hoisted_8)])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(props.formattedRow[props.column.field]), 1
+      /* TEXT */
+      ))];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["columns", "rows", "pagination-options"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <table class=\"min-w-full\">\n            <thead>\n                <tr>\n                    <th class=\"px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100\">\n                        First Name\n                    </th>\n                    <th class=\"px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100\">\n                        Last Name\n                    </th>\n                    <th class=\"px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100\">\n                        ID Number\n                    </th>\n                    <th class=\"px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100\">\n                        Email\n                    </th>\n                    <th class=\"px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100\">\n                        Phone\n                    </th>\n                    <th class=\"px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100\">\n                        School\n                    </th>\n                    <th class=\"px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100\">\n                        Edit\n                    </th>\n                    <th class=\"px-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100\">\n                        Delete\n                    </th>\n                </tr>\n            </thead>\n            <tbody class=\"bg-white\">\n                <template v-for=\"student in students\" :key=\"student.id\"> \n                    <tr>\n                        <td class=\"px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200\">\n                            {{ student.first_name }}\n                        </td>\n                        <td class=\"px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200\">\n                            {{ student.last_name }}\n                        </td>\n                        <td class=\"px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200\" >\n                            {{ student.id_number }}\n                        </td>\n                        <td class=\"px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200\" >\n                            {{ student.email }}\n                        </td>\n                        <td class=\"px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200\" >\n                            {{ student.phone }}\n                        </td>\n                        <td class=\"px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200\" >\n                            {{ student.school.name }}\n                        </td>\n                        <td class=\"px-3 py-3 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200\">\n                            <router-link :to=\"{name: 'students.edit', params: { id: student.id }, }\">\n                                <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"w-6 h-6 text-blue-400\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">\n                                    <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z\"/>\n                                </svg>\n                            </router-link>\n                        </td>\n                        <td class=\"px-3 py-3 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200\">\n                            <a @click=\"deleteStudent(student.id)\">\n                                <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"w-6 h-6 text-red-600\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">\n                                    <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16\"/>\n                                </svg>\n                            </a>\n                        </td>\n                    </tr>\n                </template>\n            </tbody>\n        </table> ")]);
 }
 
 /***/ }),
