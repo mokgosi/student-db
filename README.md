@@ -212,6 +212,12 @@ Request
 PUT   http://localhost/api/schools/1
 Content-Type: application/json
 Bearer: 2|RYYCbpILwVsvrnIrWzbR3jd5jrc5FMo7g06d6DwE
+Body:
+{
+    "name": "Kerluke LLCC",
+    "province_id": 6,
+    "area": "Lesotho"
+}
 ```
 
 Response:
@@ -242,7 +248,18 @@ Request
 ```
 PUT   http://localhost/api/students/1
 Content-Type: application/json
-Bearer: 2|RYYCbpILwVsvrnIrWzbR3jd5jrc5FMo7g06d6DwE
+Bearer: 1|Ogz8KZQ7emPer0p8jo0Y65wORBTI1eGAkvv30JXA
+Body:
+{
+    "first_name": "Dovie",
+    "last_name": "Harvey",
+    "id_number": "3579508079000",
+    "date_of_birth": "2003-02-24",
+    "home_address": "451 Avis Harbors\nSouth Bernitaborough, KY 07822-3835",
+    "email": "khills@example.com",
+    "phone": "0673748497",
+    "school_id": 5
+}
 ```
 
 Response:
