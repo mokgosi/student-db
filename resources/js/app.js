@@ -7,7 +7,7 @@ import StudentsIndex from './components/students/StudentsIndex';
 
 createApp({
     components: {
-        StudentsIndex
+        StudentsIndex,
     }
 }).use(router).mount('#app');
 

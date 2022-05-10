@@ -17,7 +17,11 @@ class SchoolController extends Controller
      */
     public function index()
     {
-        return SchoolResource::collection(School::with('province')->get());
+        return SchoolResource::collection(
+            School::select('schools.id','schools.province_id', 'schools.name', 'schools.area', 'provinces.name as province')
+            ->join('provinces', 'schools.province_id','=','provinces.id')->get());
+
+            
     }
 
     /**
