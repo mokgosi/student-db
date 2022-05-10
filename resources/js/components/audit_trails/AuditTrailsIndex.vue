@@ -15,6 +15,10 @@
             :search-options="{
                 enabled: true
             }"
+            :sort-options="{
+                enabled: true,
+                initialSortBy: {field: 'update_date', type: 'asc'}
+            }"
             :pagination-options="{
                 enabled: true,
                 mode: 'pages',
@@ -122,6 +126,7 @@ export default {
             {label: "ChangedBy", field: 'user', tdClass: tdCClass, thClass: tdHClass},
             {label: "Old Values", field: 'old_values', sortable: false, tdClass: tdCClass, thClass: tdHClass},
             {label: "New Values", field: 'new_values', sortable: false, tdClass: tdCClass, thClass: tdHClass},
+            {label: "Date", field: 'update_date', tdClass: tdCClass, thClass: tdHClass},
             {label: 'Delete', field: 'after', sortable: false, tdClass: tdCClass, thClass: tdHClass}
         ]);
 

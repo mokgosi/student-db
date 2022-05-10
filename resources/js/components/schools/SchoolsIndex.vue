@@ -123,6 +123,7 @@ export default {
 
         const tdHClass = "x-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100"
         const tdCClass = "px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200"
+        
         const columns = reactive([
             {label: "Name", field: 'name', tdClass: tdCClass, thClass: tdHClass},
             {label: "Area", field: 'area', tdClass: tdCClass, thClass: tdHClass},

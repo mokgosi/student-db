@@ -22,7 +22,8 @@ class AuditController extends Controller
             // ->get());
 
             Audit::select('audits.*', 'users.name as user', 
-            DB::raw("CONCAT(students.first_name,' ',students.last_name) AS student"))
+            DB::raw("CONCAT(students.first_name,' ',students.last_name) AS student"),
+            DB::raw('DATE_FORMAT(audits.updated_at, "%Y/%m/%d %H:%i:%s") as update_date'))
             ->join('users', 'users.id', '=', 'audits.user_id')
             ->leftJoin('students', 'students.id', '=', 'audits.auditable_id')
             ->orderBy('audits.created_at', 'desc')   
