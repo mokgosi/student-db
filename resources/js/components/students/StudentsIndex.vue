@@ -29,7 +29,7 @@
                 ofLabel: 'of',
                 pageLabel: 'Page', // for 'pages' mode
                 allLabel: 'All',
-                infoFn: (params) => `Showing ${params.firstRecordOnPage} to ${params.lastRecordOnPage} of page ${params.currentPage}`,
+                // infoFn: (params) => `Showing ${params.firstRecordOnPage} to ${params.lastRecordOnPage} of page ${params.currentPage}`,
             }">
             <template #table-row="props">
                 <span v-if="props.column.field == 'before'">

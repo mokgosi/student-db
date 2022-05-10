@@ -28,9 +28,9 @@
                 prevLabel: 'prev',
                 rowsPerPageLabel: 'Rows per page',
                 ofLabel: 'of',
-                pageLabel: 'page', // for 'pages' mode
+                pageLabel: 'Page', // for 'pages' mode
                 allLabel: 'All',
-                infoFn: (params) => `Showing ${params.firstRecordOnPage} to ${params.lastRecordOnPage} of page ${params.currentPage}`,
+                // infoFn: (params) => `Showing ${params.firstRecordOnPage} to ${params.lastRecordOnPage} of page ${params.currentPage}`,
 
             }">
             <template #table-row="props">
