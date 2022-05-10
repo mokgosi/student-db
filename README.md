@@ -202,6 +202,69 @@ Response:
     },
     ..........
 }
+```
+
+5. Update School
+
+Request
+
+```
+PUT   http://localhost/api/schools/1
+Content-Type: application/json
+Bearer: 2|RYYCbpILwVsvrnIrWzbR3jd5jrc5FMo7g06d6DwE
+```
+
+Response:
+
+```
+{
+    "data": [
+    {
+        "id": 1,
+        "name": "Kerluke LLC",
+        "area": "Lesotho",
+        "province_id": 6,
+        "created_at": "2022-05-09T13:50:56.000000Z",
+        "updated_at": "2022-05-09T13:50:56.000000Z",
+        "students_count": 4,
+        "province": {
+            "id": 6,
+            "name": "Eastern Cape"
+        }
+    }
+}
+```
+
+5. Update Student
+
+Request
+
+```
+PUT   http://localhost/api/students/1
+Content-Type: application/json
+Bearer: 2|RYYCbpILwVsvrnIrWzbR3jd5jrc5FMo7g06d6DwE
+```
+
+Response:
+
+```
+{
+    "data": [
+    {
+        "id": 1,
+        "name": "Kerluke LLC",
+        "area": "Lesotho",
+        "province_id": 6,
+        "created_at": "2022-05-09T13:50:56.000000Z",
+        "updated_at": "2022-05-09T13:50:56.000000Z",
+        "students_count": 4,
+        "province": {
+            "id": 6,
+            "name": "Eastern Cape"
+        }
+    }
+}
+```
 
 TODO: (Due to time constraints)
 
