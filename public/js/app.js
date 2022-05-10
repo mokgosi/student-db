@@ -25268,6 +25268,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       tdClass: tdCClass,
       thClass: tdHClass
     }, {
+      label: 'Home Address',
+      field: 'home_address',
+      sortable: false,
+      tdClass: tdCClass,
+      thClass: tdHClass
+    }, {
       label: 'Edit',
       field: 'before',
       sortable: false,

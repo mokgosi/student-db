@@ -145,6 +145,7 @@ export default {
             {label: "Email", field: 'email', tdClass: tdCClass, thClass: tdHClass},
             {label: 'Phone', field: 'phone', tdClass: tdCClass, thClass: tdHClass},
             {label: 'School', field: 'school', tdClass: tdCClass, thClass: tdHClass},
+            {label: 'Home Address', field: 'home_address', sortable: false, tdClass: tdCClass, thClass: tdHClass},
             {label: 'Edit', field: 'before', sortable: false, tdClass: tdCClass, thClass: tdHClass},
             {label: 'Delete', field: 'after', sortable: false, tdClass: tdCClass, thClass: tdHClass}
         ]);
