@@ -24687,14 +24687,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       label: "Auditable Type",
       field: 'auditable_type'
     }, {
-      label: "Student",
-      field: 'auditable_id'
-    }, {
       label: "Event",
       field: 'event'
     }, {
-      label: "User",
-      field: 'user_id'
+      label: "ChangedBy",
+      field: 'user'
     }, {
       label: "Old Values",
       field: 'old_values',

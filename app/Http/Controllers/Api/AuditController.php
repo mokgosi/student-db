@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\AuditResource;
 use \OwenIt\Auditing\Models\Audit;
+use Illuminate\Support\Facades\DB;
 
 class AuditController extends Controller
 {
@@ -15,8 +16,16 @@ class AuditController extends Controller
      */
     public function index()
     {
-        return AuditResource::collection(Audit::with('user')
-            ->orderBy('created_at', 'desc')                
+        return AuditResource::collection(
+            // Audit::with('user')
+            // ->orderBy('created_at', 'desc')                
+            // ->get());
+
+            Audit::select('audits.*', 'users.name as user', 
+            DB::raw("CONCAT(students.first_name,' ',students.last_name) AS student"))
+            ->join('users', 'users.id', '=', 'audits.user_id')
+            ->leftJoin('students', 'students.id', '=', 'audits.auditable_id')
+            ->orderBy('audits.created_at', 'desc')   
             ->get());
     }
 
