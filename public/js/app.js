@@ -26942,7 +26942,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       prevLabel: 'prev',
       rowsPerPageLabel: 'Rows per page',
       ofLabel: 'of',
-      pageLabel: 'page',
+      pageLabel: 'Page',
       // for 'pages' mode
       allLabel: 'All',
       infoFn: function infoFn(params) {
