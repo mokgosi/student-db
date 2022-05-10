@@ -25642,7 +25642,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       // for 'pages' mode
       allLabel: 'All',
       infoFn: function infoFn(params) {
-        return "my own page ".concat(params.firstRecordOnPage);
+        return "Showing ".concat(params.firstRecordOnPage, " to ").concat(params.lastRecordOnPage, " of page ").concat(params.currentPage);
       }
     }
   }, {
@@ -26115,7 +26115,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       // for 'pages' mode
       allLabel: 'All',
       infoFn: function infoFn(params) {
-        return "my own page ".concat(params.firstRecordOnPage);
+        return "Showing ".concat(params.firstRecordOnPage, " to ").concat(params.lastRecordOnPage, " of page ").concat(params.currentPage);
       }
     }
   }, {
