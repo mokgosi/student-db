@@ -135,15 +135,18 @@ export default {
     setup() {
         const { students, getStudents, destroyStudent} = useStudents();
 
+        const tdHClass = "x-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100"
+        const tdCClass = "px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200"
+
         const columns = reactive([
-            {label: "First Name", field: 'first_name'},
-            {label: "Last Name", field: 'last_name'},
-            {label: "ID Number", field: 'id_number'},
-            {label: "Email", field: 'email'},
-            {label: 'Phone', field: 'phone'},
-            {label: 'School', field: 'school'},
-            {label: 'Edit', field: 'before', sortable: false},
-            {label: 'Delete', field: 'after', sortable: false}
+            {label: "First Name", field: 'first_name', tdClass: tdCClass, thClass: tdHClass},
+            {label: "Last Name", field: 'last_name', tdClass: tdCClass, thClass: tdHClass},
+            {label: "ID Number", field: 'id_number', tdClass: tdCClass, thClass: tdHClass},
+            {label: "Email", field: 'email', tdClass: tdCClass, thClass: tdHClass},
+            {label: 'Phone', field: 'phone', tdClass: tdCClass, thClass: tdHClass},
+            {label: 'School', field: 'school', tdClass: tdCClass, thClass: tdHClass},
+            {label: 'Edit', field: 'before', sortable: false, tdClass: tdCClass, thClass: tdHClass},
+            {label: 'Delete', field: 'after', sortable: false, tdClass: tdCClass, thClass: tdHClass}
         ]);
 
         onMounted(getStudents);

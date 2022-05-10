@@ -24683,27 +24683,41 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         getAuditTrails = _useAuditTrails.getAuditTrails,
         destroyAuditTrail = _useAuditTrails.destroyAuditTrail;
 
+    var tdHClass = "x-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100";
+    var tdCClass = "px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200";
     var columns = (0,vue__WEBPACK_IMPORTED_MODULE_2__.reactive)([{
       label: "Auditable Type",
-      field: 'auditable_type'
+      field: 'auditable_type',
+      tdClass: tdCClass,
+      thClass: tdHClass
     }, {
       label: "Event",
-      field: 'event'
+      field: 'event',
+      tdClass: tdCClass,
+      thClass: tdHClass
     }, {
       label: "ChangedBy",
-      field: 'user'
+      field: 'user',
+      tdClass: tdCClass,
+      thClass: tdHClass
     }, {
       label: "Old Values",
       field: 'old_values',
-      sortable: false
+      sortable: false,
+      tdClass: tdCClass,
+      thClass: tdHClass
     }, {
       label: "New Values",
       field: 'new_values',
-      sortable: false
+      sortable: false,
+      tdClass: tdCClass,
+      thClass: tdHClass
     }, {
       label: 'Delete',
       field: 'after',
-      sortable: false
+      sortable: false,
+      tdClass: tdCClass,
+      thClass: tdHClass
     }]);
     (0,vue__WEBPACK_IMPORTED_MODULE_2__.onMounted)(getAuditTrails);
 
@@ -24941,26 +24955,40 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         getSchools = _useSchools.getSchools,
         destroySchool = _useSchools.destroySchool;
 
+    var tdHClass = "x-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100";
+    var tdCClass = "px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200";
     var columns = (0,vue__WEBPACK_IMPORTED_MODULE_2__.reactive)([{
       label: "Name",
-      field: 'name'
+      field: 'name',
+      tdClass: tdCClass,
+      thClass: tdHClass
     }, {
       label: "Area",
-      field: 'area'
+      field: 'area',
+      tdClass: tdCClass,
+      thClass: tdHClass
     }, {
       label: "Province",
-      field: 'province'
+      field: 'province',
+      tdClass: tdCClass,
+      thClass: tdHClass
     }, {
       label: "No. of Students",
-      field: 'students_count'
+      field: 'students_count',
+      tdClass: tdCClass,
+      thClass: tdHClass
     }, {
       label: 'Edit',
       field: 'before',
-      sortable: false
+      sortable: false,
+      tdClass: tdCClass,
+      thClass: tdHClass
     }, {
       label: 'Delete',
       field: 'after',
-      sortable: false
+      sortable: false,
+      tdClass: tdCClass,
+      thClass: tdHClass
     }]);
     (0,vue__WEBPACK_IMPORTED_MODULE_2__.onMounted)(getSchools);
 
@@ -25202,32 +25230,50 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         getStudents = _useStudents.getStudents,
         destroyStudent = _useStudents.destroyStudent;
 
+    var tdHClass = "x-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100";
+    var tdCClass = "px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200";
     var columns = (0,vue__WEBPACK_IMPORTED_MODULE_2__.reactive)([{
       label: "First Name",
-      field: 'first_name'
+      field: 'first_name',
+      tdClass: tdCClass,
+      thClass: tdHClass
     }, {
       label: "Last Name",
-      field: 'last_name'
+      field: 'last_name',
+      tdClass: tdCClass,
+      thClass: tdHClass
     }, {
       label: "ID Number",
-      field: 'id_number'
+      field: 'id_number',
+      tdClass: tdCClass,
+      thClass: tdHClass
     }, {
       label: "Email",
-      field: 'email'
+      field: 'email',
+      tdClass: tdCClass,
+      thClass: tdHClass
     }, {
       label: 'Phone',
-      field: 'phone'
+      field: 'phone',
+      tdClass: tdCClass,
+      thClass: tdHClass
     }, {
       label: 'School',
-      field: 'school'
+      field: 'school',
+      tdClass: tdCClass,
+      thClass: tdHClass
     }, {
       label: 'Edit',
       field: 'before',
-      sortable: false
+      sortable: false,
+      tdClass: tdCClass,
+      thClass: tdHClass
     }, {
       label: 'Delete',
       field: 'after',
-      sortable: false
+      sortable: false,
+      tdClass: tdCClass,
+      thClass: tdHClass
     }]);
     (0,vue__WEBPACK_IMPORTED_MODULE_2__.onMounted)(getStudents);
 

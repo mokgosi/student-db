@@ -113,13 +113,16 @@ export default {
     setup() {
         const { auditTrails, getAuditTrails, destroyAuditTrail} = useAuditTrails();
 
+        const tdHClass = "x-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100"
+        const tdCClass = "px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200"
+
         const columns = reactive([
-            {label: "Auditable Type", field: 'auditable_type'},
-            {label: "Event", field: 'event'},
-            {label: "ChangedBy", field: 'user'},
-            {label: "Old Values", field: 'old_values', sortable: false},
-            {label: "New Values", field: 'new_values', sortable: false},
-            {label: 'Delete', field: 'after', sortable: false}
+            {label: "Auditable Type", field: 'auditable_type', tdClass: tdCClass, thClass: tdHClass},
+            {label: "Event", field: 'event', tdClass: tdCClass, thClass: tdHClass},
+            {label: "ChangedBy", field: 'user', tdClass: tdCClass, thClass: tdHClass},
+            {label: "Old Values", field: 'old_values', sortable: false, tdClass: tdCClass, thClass: tdHClass},
+            {label: "New Values", field: 'new_values', sortable: false, tdClass: tdCClass, thClass: tdHClass},
+            {label: 'Delete', field: 'after', sortable: false, tdClass: tdCClass, thClass: tdHClass}
         ]);
 
         onMounted(getAuditTrails);

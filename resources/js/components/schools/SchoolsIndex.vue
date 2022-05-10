@@ -121,13 +121,15 @@ export default {
     setup() {
         const {schools, getSchools, destroySchool} = useSchools();
 
+        const tdHClass = "x-3 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-100"
+        const tdCClass = "px-3 py-3 text-sm font-medium whitespace-no-wrap border-b border-gray-200"
         const columns = reactive([
-            {label: "Name", field: 'name'},
-            {label: "Area", field: 'area'},
-            {label: "Province", field: 'province'},
-            {label: "No. of Students", field: 'students_count'},
-            {label: 'Edit', field: 'before', sortable: false},
-            {label: 'Delete', field: 'after', sortable: false}
+            {label: "Name", field: 'name', tdClass: tdCClass, thClass: tdHClass},
+            {label: "Area", field: 'area', tdClass: tdCClass, thClass: tdHClass},
+            {label: "Province", field: 'province', tdClass: tdCClass, thClass: tdHClass},
+            {label: "No. of Students", field: 'students_count', tdClass: tdCClass, thClass: tdHClass},
+            {label: 'Edit', field: 'before', sortable: false, tdClass: tdCClass, thClass: tdHClass},
+            {label: 'Delete', field: 'after', sortable: false, tdClass: tdCClass, thClass: tdHClass}
         ]);
 
         onMounted(getSchools);
