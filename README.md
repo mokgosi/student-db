@@ -10,6 +10,7 @@ The following instructions assumes that you are familiar with the following tech
 - Docker-Compose
 - Node & NPM
 - Git
+- Postman
 
 ### Clone the repo from github 
 ```
@@ -65,6 +66,142 @@ $ ./vendor/bin/sail artisan migrate:fresh --seed
 
 http://localhost
 
+OR
+
+TEST using POSTMAN
+
+### 1. Register to acquire your Bearer Token
+
+Request
+
+```
+POST   http://localhost/api/register
+Content-Type: application/json
+Body: 
+{
+    "name": "New User",
+    "email": "user@mail.com",
+    "password": "S3cr3tP@sssw0rd",
+    "password_confirmation": "S3cr3tP@sssw0rd"
+}
+```
+
+Response:
+
+```
+{
+    "user": {
+        "name": "New User",
+        "email": "user@mail.com",
+        "updated_at": "2022-05-10T04:17:11.000000Z",
+        "created_at": "2022-05-10T04:17:11.000000Z",
+        "id": 3
+    },
+    "token": "1|Ogz8KZQ7emPer0p8jo0Y65wORBTI1eGAkvv30JXA"
+}
+```
+
+### 2. Login
+
+Request
+
+```
+GET   http://localhost/api/login
+Content-Type: application/json
+Body: 
+{
+    "email": "user@mail.com",
+    "password": "S3cr3tP@sssw0rd",
+}
+```
+
+Response:
+
+```
+{
+    "user": {
+        "id": 3,
+        "name": "New User",
+        "email": "user@mail.com",
+        "email_verified_at": null,
+        "created_at": "2022-05-10T04:17:11.000000Z",
+        "updated_at": "2022-05-10T04:17:11.000000Z"
+    },
+    "token": "2|RYYCbpILwVsvrnIrWzbR3jd5jrc5FMo7g06d6DwE"
+}
+```
+
+### 3. Get Student List
+
+Request
+
+```
+GET   http://localhost/api/students
+Content-Type: application/json
+Bearer: 2|RYYCbpILwVsvrnIrWzbR3jd5jrc5FMo7g06d6DwE
+```
+
+Response:
+
+```
+{
+    "data": [
+    {
+        "id": 1,
+        "first_name": "Dovie",
+        "last_name": "Harvey",
+        "id_number": "3579508079000",
+        "date_of_birth": "2003-02-24",
+        "home_address": "451 Avis Harbors\nSouth Bernitaborough, KY 07822-3835",
+        "email": "khills@example.com",
+        "phone": "+17033748497",
+        "school_id": 5,
+        "created_at": "2022-05-09T13:50:56.000000Z",
+        "updated_at": "2022-05-09T13:50:56.000000Z",
+        "school": {
+            "id": 5,
+            "name": "Ernser, Mertz and Leuschke",
+            "area": "Turkmenistan",
+            "province_id": 7,
+            "created_at": "2022-05-09T13:50:56.000000Z",
+            "updated_at": "2022-05-09T13:50:56.000000Z",
+            "students_count": 5
+        }
+    },
+    ........
+}
+```
+
+4. Get School List
+
+Request
+
+```
+GET   http://localhost/api/schools
+Content-Type: application/json
+Bearer: 2|RYYCbpILwVsvrnIrWzbR3jd5jrc5FMo7g06d6DwE
+```
+
+Response:
+
+```
+{
+    "data": [
+    {
+        "id": 1,
+        "name": "Kerluke LLC",
+        "area": "Lesotho",
+        "province_id": 6,
+        "created_at": "2022-05-09T13:50:56.000000Z",
+        "updated_at": "2022-05-09T13:50:56.000000Z",
+        "students_count": 4,
+        "province": {
+            "id": 6,
+            "name": "Eastern Cape"
+        }
+    },
+    ..........
+}
 
 TODO: (Due to time constraints)
 
