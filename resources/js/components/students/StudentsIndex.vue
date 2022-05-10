@@ -23,8 +23,8 @@
                 perPageDropdown: [5, 10, 15],
                 dropdownAllowAll: false,
                 setCurrentPage: 1,
-                nextLabel: 'next',
-                prevLabel: 'prev',
+                nextLabel: 'Next',
+                prevLabel: 'Prev',
                 rowsPerPageLabel: 'Rows per page',
                 ofLabel: 'of',
                 pageLabel: 'Page', // for 'pages' mode
