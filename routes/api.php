@@ -25,7 +25,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('register', [AuthController::class, 'register'])->name('register');
 Route::get('login', [AuthController::class, 'login'])->name('login');
-Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::apiResource('students', StudentController::class);
