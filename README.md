@@ -285,6 +285,4 @@ Response:
 
 TODO: (Due to time constraints)
 
-- Implement DataTables
 - Unit Tests
-- Pagination
