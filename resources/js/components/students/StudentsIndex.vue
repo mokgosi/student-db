@@ -142,8 +142,8 @@ export default {
             {label: "Email", field: 'email'},
             {label: 'Phone', field: 'phone'},
             {label: 'School', field: 'school'},
-            {label: 'Edit', field: 'before'},
-            {label: 'Delete', field: 'after'}
+            {label: 'Edit', field: 'before', sortable: false},
+            {label: 'Delete', field: 'after', sortable: false}
         ]);
 
         onMounted(getStudents);

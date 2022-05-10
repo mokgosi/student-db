@@ -126,8 +126,8 @@ export default {
             {label: "Area", field: 'area'},
             {label: "Province", field: 'province'},
             {label: "No. of Students", field: 'students_count'},
-            {label: 'Edit', field: 'before'},
-            {label: 'Delete', field: 'after'}
+            {label: 'Edit', field: 'before', sortable: false},
+            {label: 'Delete', field: 'after', sortable: false}
         ]);
 
         onMounted(getSchools);

@@ -24958,10 +24958,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       field: 'students_count'
     }, {
       label: 'Edit',
-      field: 'before'
+      field: 'before',
+      sortable: false
     }, {
       label: 'Delete',
-      field: 'after'
+      field: 'after',
+      sortable: false
     }]);
     (0,vue__WEBPACK_IMPORTED_MODULE_2__.onMounted)(getSchools);
 
@@ -25223,10 +25225,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       field: 'school'
     }, {
       label: 'Edit',
-      field: 'before'
+      field: 'before',
+      sortable: false
     }, {
       label: 'Delete',
-      field: 'after'
+      field: 'after',
+      sortable: false
     }]);
     (0,vue__WEBPACK_IMPORTED_MODULE_2__.onMounted)(getStudents);
 
